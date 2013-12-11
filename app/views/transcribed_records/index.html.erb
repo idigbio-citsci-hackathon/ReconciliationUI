@@ -1,0 +1,69 @@
+<h1>Listing transcribed_records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Collection</th>
+      <th>Subject</th>
+      <th>User</th>
+      <th>Filename</th>
+      <th>Created at</th>
+      <th>Source</th>
+      <th>Collector</th>
+      <th>Collector number</th>
+      <th>Collection date</th>
+      <th>Collection date end</th>
+      <th>Scientific name</th>
+      <th>Host</th>
+      <th>Habitat</th>
+      <th>Notes</th>
+      <th>Elevation</th>
+      <th>Lat lon</th>
+      <th>Location</th>
+      <th>County</th>
+      <th>State province</th>
+      <th>Country</th>
+      <th>Registration number</th>
+      <th>Page number</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transcribed_records.each do |transcribed_record| %>
+      <tr>
+        <td><%= transcribed_record.collection %></td>
+        <td><%= transcribed_record.subject_id %></td>
+        <td><%= transcribed_record.user %></td>
+        <td><%= transcribed_record.filename %></td>
+        <td><%= transcribed_record.created_at %></td>
+        <td><%= transcribed_record.source_id %></td>
+        <td><%= transcribed_record.collector %></td>
+        <td><%= transcribed_record.collector_number %></td>
+        <td><%= transcribed_record.collection_date %></td>
+        <td><%= transcribed_record.collection_date_end %></td>
+        <td><%= transcribed_record.scientific_name %></td>
+        <td><%= transcribed_record.host %></td>
+        <td><%= transcribed_record.habitat %></td>
+        <td><%= transcribed_record.notes %></td>
+        <td><%= transcribed_record.elevation %></td>
+        <td><%= transcribed_record.lat_lon %></td>
+        <td><%= transcribed_record.location %></td>
+        <td><%= transcribed_record.county %></td>
+        <td><%= transcribed_record.state_province %></td>
+        <td><%= transcribed_record.country %></td>
+        <td><%= transcribed_record.registration_number %></td>
+        <td><%= transcribed_record.page_number %></td>
+        <td><%= link_to 'Show', transcribed_record %></td>
+        <td><%= link_to 'Edit', edit_transcribed_record_path(transcribed_record) %></td>
+        <td><%= link_to 'Destroy', transcribed_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transcribed record', new_transcribed_record_path %>

@@ -1,0 +1,105 @@
+<%= form_for(@transcribed_record) do |f| %>
+  <% if @transcribed_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transcribed_record.errors.count, "error") %> prohibited this transcribed_record from being saved:</h2>
+
+      <ul>
+      <% @transcribed_record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :collection %><br>
+    <%= f.text_field :collection %>
+  </div>
+  <div class="field">
+    <%= f.label :subject_id %><br>
+    <%= f.text_field :subject_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :filename %><br>
+    <%= f.text_field :filename %>
+  </div>
+  <div class="field">
+    <%= f.label :created_at %><br>
+    <%= f.datetime_select :created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :source_id %><br>
+    <%= f.text_field :source_id %>
+  </div>
+  <div class="field">
+    <%= f.label :collector %><br>
+    <%= f.text_field :collector %>
+  </div>
+  <div class="field">
+    <%= f.label :collector_number %><br>
+    <%= f.text_field :collector_number %>
+  </div>
+  <div class="field">
+    <%= f.label :collection_date %><br>
+    <%= f.text_field :collection_date %>
+  </div>
+  <div class="field">
+    <%= f.label :collection_date_end %><br>
+    <%= f.text_field :collection_date_end %>
+  </div>
+  <div class="field">
+    <%= f.label :scientific_name %><br>
+    <%= f.text_field :scientific_name %>
+  </div>
+  <div class="field">
+    <%= f.label :host %><br>
+    <%= f.text_field :host %>
+  </div>
+  <div class="field">
+    <%= f.label :habitat %><br>
+    <%= f.text_field :habitat %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_field :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :elevation %><br>
+    <%= f.text_field :elevation %>
+  </div>
+  <div class="field">
+    <%= f.label :lat_lon %><br>
+    <%= f.text_field :lat_lon %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :county %><br>
+    <%= f.text_field :county %>
+  </div>
+  <div class="field">
+    <%= f.label :state_province %><br>
+    <%= f.text_field :state_province %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :registration_number %><br>
+    <%= f.text_field :registration_number %>
+  </div>
+  <div class="field">
+    <%= f.label :page_number %><br>
+    <%= f.text_field :page_number %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
