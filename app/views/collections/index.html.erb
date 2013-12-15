@@ -1,4 +1,12 @@
-<h1>Listing collections</h1>
+<h1>Collections</h1>
+
+<%= form_tag("set_reconciliation", method: "post") do %>
+<%= label_tag :reconciler_name, "Reconciler Name" %>
+<%= text_field_tag :reconciler_name, session[:reconciler_name] %>
+<%= label_tag :reconciliation_threshhold, "Reconciliation Threshhold" %>
+<%= text_field_tag :reconciliation_threshhold, session[:reconciliation_threshhold] %>
+<%= submit_tag("Save") %>
+<% end %>
 
 <table>
   <thead>

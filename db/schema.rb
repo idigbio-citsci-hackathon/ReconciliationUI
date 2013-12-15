@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211212328) do
+ActiveRecord::Schema.define(version: 20131211204836) do
 
   create_table "collections", force: true do |t|
     t.string   "collection_name"
@@ -19,17 +19,9 @@ ActiveRecord::Schema.define(version: 20131211212328) do
     t.datetime "updated_at"
   end
 
-  create_table "filenames", force: true do |t|
-    t.string   "filename"
-    t.integer  "collection_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "filenames", ["collection_id"], name: "index_filenames_on_collection_id", using: :btree
-
   create_table "subjects", force: true do |t|
     t.string   "subject_id"
+    t.string   "filename"
     t.integer  "collection_id"
     t.datetime "created_at"
     t.datetime "updated_at"

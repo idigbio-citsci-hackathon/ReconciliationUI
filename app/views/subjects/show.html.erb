@@ -1,9 +1,71 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Collection:</strong>
+  <%= @subject.collection.collection_name %>
+  <br />
   <strong>Subject:</strong>
   <%= @subject.subject_id %>
+  <br />
+  <strong>Filename:</strong>
+  <%= @subject.filename %>
+  <br />
+  <strong>Image URL:</strong>
+  <%= @subject.collection.image_url(@subject) %>
 </p>
+
+<%= image_tag(@subject.collection.image_url(@subject), { width: "100%"}) %>
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Source</th>
+      <th>Collector</th>
+      <th>Collector number</th>
+      <th>Collection date</th>
+      <th>Collection date end</th>
+      <th>Scientific name</th>
+      <th>Host</th>
+      <th>Habitat</th>
+      <th>Notes</th>
+      <th>Elevation</th>
+      <th>Lat lon</th>
+      <th>Location</th>
+      <th>County</th>
+      <th>State province</th>
+      <th>Country</th>
+      <th>Registration number</th>
+      <th>Page number</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subject.transcribed_records.each do |transcribed_record| %>
+      <tr>
+        <td><%= transcribed_record.user.user_name %></td>
+        <td><%= transcribed_record.source_id %></td>
+        <td><%= transcribed_record.collector %></td>
+        <td><%= transcribed_record.collector_number %></td>
+        <td><%= transcribed_record.collection_date %></td>
+        <td><%= transcribed_record.collection_date_end %></td>
+        <td><%= transcribed_record.scientific_name %></td>
+        <td><%= transcribed_record.host %></td>
+        <td><%= transcribed_record.habitat %></td>
+        <td><%= transcribed_record.notes %></td>
+        <td><%= transcribed_record.elevation %></td>
+        <td><%= transcribed_record.lat_lon %></td>
+        <td><%= transcribed_record.location %></td>
+        <td><%= transcribed_record.county %></td>
+        <td><%= transcribed_record.state_province %></td>
+        <td><%= transcribed_record.country %></td>
+        <td><%= transcribed_record.registration_number %></td>
+        <td><%= transcribed_record.page_number %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 
 <%= link_to 'Edit', edit_subject_path(@subject) %> |
 <%= link_to 'Back', subjects_path %>

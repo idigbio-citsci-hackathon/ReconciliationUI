@@ -1,6 +1,14 @@
 class CollectionsController < ApplicationController
   before_action :set_collection, only: [:show, :edit, :update, :destroy]
 
+  def set_reconciliation
+    session[:reconciler_name]=params[:reconciler_name]
+    session[:reconciliation_threshhold]=params[:reconciliation_threshhold]
+    binding.pry
+    redirect_to action: 'index'
+  end
+
+
   # GET /collections
   # GET /collections.json
   def index

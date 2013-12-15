@@ -1,6 +1,4 @@
 ReconciliationUI::Application.routes.draw do
-  resources :filenames
-
   resources :subjects
 
   resources :collections
@@ -15,6 +13,8 @@ ReconciliationUI::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'collections#index'
+  
+  post 'set_reconciliation', to: 'collections#set_reconciliation' 
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
