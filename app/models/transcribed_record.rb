@@ -5,8 +5,20 @@ class TranscribedRecord < ActiveRecord::Base
   belongs_to :user
   belongs_to :subject
 
-    
+  SUPPRESS = [
+    'id',
+    'collection_id',
+    'user_id',
+    'filename_id',
+    'subject_id',
+    'created_at',
+    'updated_at',
+    'source_id'
+  ]
 
+  def display_attributes
+    self.attributes.reject { |k,v| SUPPRESS.include?(k )}
+  end
 
 
   def self.process(filename)
