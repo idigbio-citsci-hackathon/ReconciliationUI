@@ -21,15 +21,21 @@ ActiveRecord::Schema.define(version: 20131211212328) do
 
   create_table "filenames", force: true do |t|
     t.string   "filename"
+    t.integer  "collection_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "filenames", ["collection_id"], name: "index_filenames_on_collection_id", using: :btree
+
   create_table "subjects", force: true do |t|
     t.string   "subject_id"
+    t.integer  "collection_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "subjects", ["collection_id"], name: "index_subjects_on_collection_id", using: :btree
 
   create_table "transcribed_records", force: true do |t|
     t.integer  "collection_id"
@@ -38,7 +44,7 @@ ActiveRecord::Schema.define(version: 20131211212328) do
     t.integer  "subject_id"
     t.datetime "created_at"
     t.string   "source_id"
-    t.string   "collector"
+    t.text     "collector"
     t.string   "collector_number"
     t.string   "collection_date"
     t.string   "collection_date_begin"

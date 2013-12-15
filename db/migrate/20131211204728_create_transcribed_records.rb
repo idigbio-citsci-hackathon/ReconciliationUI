@@ -7,7 +7,7 @@ class CreateTranscribedRecords < ActiveRecord::Migration
       t.references :subject, index: true
       t.datetime :created_at
       t.string :source_id
-      t.string :collector
+      t.text :collector
       t.string :collector_number
       t.string :collection_date
       t.string :collection_date_begin

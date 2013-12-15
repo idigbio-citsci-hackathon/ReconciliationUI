@@ -29,8 +29,8 @@ class TranscribedRecord < ActiveRecord::Base
       
       user ||= find_or_create_user(user_name)
       collection ||= find_or_create_collection(collection_name)
-      subject = find_or_create_subject(subject_id)
-      record_file = find_or_create_filename(record_filename)
+      subject = find_or_create_subject(subject_id, collection)
+      record_file = find_or_create_filename(record_filename, collection)
 
       self.user=user
       self.collection=collection
@@ -77,15 +77,15 @@ class TranscribedRecord < ActiveRecord::Base
     HEADER_TRANSLATION[header]        
   end
   
-  def find_or_create_filename(filename)
+  def find_or_create_filename(filename, collection)
     filename_record = Filename.where(:filename => filename).first
-    filename_record || Filename.create!(:filename => filename)
+    filename_record || Filename.create!(:filename => filename, :collection => collection)
   end
   
   
-  def find_or_create_subject(subject_id)
+  def find_or_create_subject(subject_id, collection)
     subject = Subject.where(:subject_id => subject_id).first
-    subject || Subject.create!(:subject_id => subject_id)
+    subject || Subject.create!(:subject_id => subject_id, :collection => collection)
   end
   
   

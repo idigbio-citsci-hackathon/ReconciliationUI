@@ -3,7 +3,39 @@
 <p>
   <strong>Collection name:</strong>
   <%= @collection.collection_name %>
+  <br />
+  <strong>Subjects:</strong>
+  <%= @collection.subjects.count %>
+  <br />
+  <strong>Transcribed Records:</strong>
+  <%= @collection.transcribed_records.count %>
 </p>
 
-<%= link_to 'Edit', edit_collection_path(@collection) %> |
+<table>
+	<thead>
+		<tr>
+			<th>
+				ID
+			</th>
+			<th>
+				Status
+			</th>
+			<th>
+				Records
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @ready_subjects.each do |subject| %>
+			<tr>
+				<td><%= link_to(subject.subject_id, subject) %></td>
+				<td>TODO</td>
+				<td><%= subject.transcribed_records.count %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
 <%= link_to 'Back', collections_path %>
