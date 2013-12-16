@@ -11,13 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211204836) do
+ActiveRecord::Schema.define(version: 20131215212445) do
 
   create_table "collections", force: true do |t|
     t.string   "collection_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "reconciled_records", force: true do |t|
+    t.integer  "subject_id"
+    t.integer  "collection_id"
+    t.string   "collector"
+    t.string   "collector_number"
+    t.string   "collection_date"
+    t.string   "collection_date_begin"
+    t.string   "collection_date_end"
+    t.string   "scientific_name"
+    t.string   "host"
+    t.string   "habitat"
+    t.string   "notes"
+    t.string   "elevation"
+    t.string   "lat_lon"
+    t.string   "location"
+    t.string   "county"
+    t.string   "state_province"
+    t.string   "country"
+    t.string   "registration_number"
+    t.string   "page_number"
+    t.string   "reconciler_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reconciled_records", ["collection_id"], name: "index_reconciled_records_on_collection_id", using: :btree
+  add_index "reconciled_records", ["subject_id"], name: "index_reconciled_records_on_subject_id", using: :btree
 
   create_table "subjects", force: true do |t|
     t.string   "subject_id"

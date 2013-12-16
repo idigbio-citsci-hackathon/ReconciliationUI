@@ -4,7 +4,7 @@ class CollectionsController < ApplicationController
   def set_reconciliation
     session[:reconciler_name]=params[:reconciler_name]
     session[:reconciliation_threshhold]=params[:reconciliation_threshhold]
-    binding.pry
+
     redirect_to action: 'index'
   end
 

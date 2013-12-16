@@ -1,4 +1,6 @@
 ReconciliationUI::Application.routes.draw do
+  resources :reconciled_records
+
   resources :subjects
 
   resources :collections
@@ -15,6 +17,7 @@ ReconciliationUI::Application.routes.draw do
   root 'collections#index'
   
   post 'set_reconciliation', to: 'collections#set_reconciliation' 
+  post 'subjects/reconcile', to: 'subjects#reconcile' 
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

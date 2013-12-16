@@ -16,36 +16,52 @@
 
 <%= image_tag(@subject.collection.image_url(@subject), { width: "80%"}) %>
 
-<table border="1px">
-  <thead>
-    <tr>
-      <th>Field</th>
-      <% @records.each_with_index do |record, i| %>
-      	<th>
-      		<%= record.user.user_name %>
-  		</th>
-      <% end %>
-	</tr>
-  </thead>
-  <tbody>
-  	<% @records.first.display_attributes.keys.each do |field| %>
-      <% if @records.detect { |r| !r[field].blank? } %>
-		<tr>
-			<td>
-				<strong><%= field.titleize %></strong>
-			</td>
-		  	<% @records.each_with_index do |record, i| %>
-				<td>
-					<%= record[field] %>
-				</td>
-			<% end %>			
-		</tr>			
-	  <% end %>
-  	
-  	<% end %>
-  	
-  </tbody>
-  
-</table>
+<% if @subject.reconciled_record %>
+	<p>
+		This record has already been reconciled by <%= @subject.reconciled_record.reconciler_name %>.
+		To override, connect to the database and <code>DELETE FROM reconciled_records WHERE id = <%= @subject.reconciled_record.id %>;</code> and refresh this page.	
+	</p>
+<% else %>
+	<%= form_tag('reconcile', method:'post') do %>
+		
+		<table border="1px">
+		  <thead>
+		    <tr>
+		      <th>Field</th>
+		      <% @records.each_with_index do |record, i| %>
+		      	<th>
+		      		<%= record.user.user_name %>
+		  		</th>
+		      <% end %>
+			</tr>
+		  </thead>
+		  <tbody>
+		  	<% @records.first.display_attributes.keys.each do |field| %>
+		      <% if @records.detect { |r| !r[field].blank? } %>
+				<tr>
+					<td>
+						<strong><%= field.titleize %></strong>
+					</td>
+				  	<% @records.each_with_index do |record, i| %>
+						<td>
+							<%= radio_button_tag field, record[field] %>
+							<%= record[field] %>
+						</td>
+					<% end %>			
+				</tr>			
+			  <% end %>
+		  	
+		  	<% end %>
+		  	
+		  </tbody>
+		  
+		</table>
+		<p>
+			Reconciler: <%= text_field_tag :reconciler_name, session[:reconciler_name]%><br />
+			<%= hidden_field_tag :id, @subject.id %>
+			<%= submit_tag "Save "%> 
+		</p>
+	<% end %>
+<% end %>
 
 <%= link_to 'Back', subjects_path %>

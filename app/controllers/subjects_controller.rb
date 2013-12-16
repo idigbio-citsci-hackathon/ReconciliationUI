@@ -13,6 +13,21 @@ class SubjectsController < ApplicationController
     @records = @subject.transcribed_records
   end
 
+  def reconcile
+    @subject = Subject.find(params[:id])
+    reconciled = ReconciledRecord.new
+#    record_params = params.reject { |k,v| !reconciled.attributes.keys.include?(k) }
+    whitelist = reconciled.attributes.keys - ['id']
+    reconciled.update_attributes(params.permit(whitelist))
+    reconciled.subject = @subject
+    reconciled.collection = @subject.collection
+    reconciled.save!
+    
+    # eventually redirect to next unreconciled record that passes threshhold
+    redirect_to @subject.collection
+  end
+
+
   # GET /subjects/new
   def new
     @subject = Subject.new

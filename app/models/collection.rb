@@ -1,6 +1,7 @@
 class Collection < ActiveRecord::Base
   has_many :transcribed_records
   has_many :subjects
+  has_many :reconciled_records
   
   
   # ornithology url: http://www.notesfromnature.org/subjects/nhm/5203a492ea30522c540000ef_page.jpg
