@@ -3,7 +3,7 @@ class TranscribedRecord < ActiveRecord::Base
 
   belongs_to :collection
   belongs_to :user
-  belongs_to :subject
+  belongs_to :subject, :counter_cache => true
 
   SUPPRESS = [
     'id',

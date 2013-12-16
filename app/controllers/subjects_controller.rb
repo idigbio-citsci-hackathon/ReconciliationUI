@@ -23,8 +23,7 @@ class SubjectsController < ApplicationController
     reconciled.collection = @subject.collection
     reconciled.save!
     
-    # eventually redirect to next unreconciled record that passes threshhold
-    redirect_to @subject.collection
+    redirect_to subject_path(@subject.next_reconcilable_subject(session[:reconciliation_threshhold]))
   end
 
 

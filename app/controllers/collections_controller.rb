@@ -18,7 +18,8 @@ class CollectionsController < ApplicationController
   # GET /collections/1
   # GET /collections/1.json
   def show
-    @ready_subjects = @collection.subjects
+    # this next line is really not as horrible as it looks, thanks to counter cacheing
+    @ready_subjects = @collection.subjects.reject { |s| s.transcribed_records.count < session[:reconciliation_threshhold].to_i }
   end
 
   # GET /collections/new

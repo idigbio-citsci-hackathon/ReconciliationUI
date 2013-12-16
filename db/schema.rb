@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20131215212445) do
     t.string   "subject_id"
     t.string   "filename"
     t.integer  "collection_id"
+    t.integer  "transcribed_records_count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
