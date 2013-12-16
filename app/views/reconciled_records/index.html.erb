@@ -1,0 +1,63 @@
+<h1>Listing reconciled_records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Collector</th>
+      <th>Collector number</th>
+      <th>Collection date</th>
+      <th>Collection date begin</th>
+      <th>Collection date end</th>
+      <th>Scientific name</th>
+      <th>Host</th>
+      <th>Habitat</th>
+      <th>Notes</th>
+      <th>Elevation</th>
+      <th>Lat lon</th>
+      <th>Location</th>
+      <th>County</th>
+      <th>State province</th>
+      <th>Country</th>
+      <th>Registration number</th>
+      <th>Page number</th>
+      <th>Reconciler name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reconciled_records.each do |reconciled_record| %>
+      <tr>
+        <td><%= reconciled_record.subject %></td>
+        <td><%= reconciled_record.collector %></td>
+        <td><%= reconciled_record.collector_number %></td>
+        <td><%= reconciled_record.collection_date %></td>
+        <td><%= reconciled_record.collection_date_begin %></td>
+        <td><%= reconciled_record.collection_date_end %></td>
+        <td><%= reconciled_record.scientific_name %></td>
+        <td><%= reconciled_record.host %></td>
+        <td><%= reconciled_record.habitat %></td>
+        <td><%= reconciled_record.notes %></td>
+        <td><%= reconciled_record.elevation %></td>
+        <td><%= reconciled_record.lat_lon %></td>
+        <td><%= reconciled_record.location %></td>
+        <td><%= reconciled_record.county %></td>
+        <td><%= reconciled_record.state_province %></td>
+        <td><%= reconciled_record.country %></td>
+        <td><%= reconciled_record.registration_number %></td>
+        <td><%= reconciled_record.page_number %></td>
+        <td><%= reconciled_record.reconciler_name %></td>
+        <td><%= link_to 'Show', reconciled_record %></td>
+        <td><%= link_to 'Edit', edit_reconciled_record_path(reconciled_record) %></td>
+        <td><%= link_to 'Destroy', reconciled_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reconciled record', new_reconciled_record_path %>

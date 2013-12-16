@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  subject_id: 
+  collector: MyString
+  collector_number: MyString
+  collection_date: MyString
+  collection_date_begin: MyString
+  collection_date_end: MyString
+  scientific_name: MyString
+  host: MyString
+  habitat: MyString
+  notes: MyString
+  elevation: MyString
+  lat_lon: MyString
+  location: MyString
+  county: MyString
+  state_province: MyString
+  country: MyString
+  registration_number: MyString
+  page_number: MyString
+  reconciler_name: MyString
+
+two:
+  subject_id: 
+  collector: MyString
+  collector_number: MyString
+  collection_date: MyString
+  collection_date_begin: MyString
+  collection_date_end: MyString
+  scientific_name: MyString
+  host: MyString
+  habitat: MyString
+  notes: MyString
+  elevation: MyString
+  lat_lon: MyString
+  location: MyString
+  county: MyString
+  state_province: MyString
+  country: MyString
+  registration_number: MyString
+  page_number: MyString
+  reconciler_name: MyString

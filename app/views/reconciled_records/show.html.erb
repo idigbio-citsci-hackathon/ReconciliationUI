@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @reconciled_record.subject %>
+</p>
+
+<p>
+  <strong>Collector:</strong>
+  <%= @reconciled_record.collector %>
+</p>
+
+<p>
+  <strong>Collector number:</strong>
+  <%= @reconciled_record.collector_number %>
+</p>
+
+<p>
+  <strong>Collection date:</strong>
+  <%= @reconciled_record.collection_date %>
+</p>
+
+<p>
+  <strong>Collection date begin:</strong>
+  <%= @reconciled_record.collection_date_begin %>
+</p>
+
+<p>
+  <strong>Collection date end:</strong>
+  <%= @reconciled_record.collection_date_end %>
+</p>
+
+<p>
+  <strong>Scientific name:</strong>
+  <%= @reconciled_record.scientific_name %>
+</p>
+
+<p>
+  <strong>Host:</strong>
+  <%= @reconciled_record.host %>
+</p>
+
+<p>
+  <strong>Habitat:</strong>
+  <%= @reconciled_record.habitat %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @reconciled_record.notes %>
+</p>
+
+<p>
+  <strong>Elevation:</strong>
+  <%= @reconciled_record.elevation %>
+</p>
+
+<p>
+  <strong>Lat lon:</strong>
+  <%= @reconciled_record.lat_lon %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @reconciled_record.location %>
+</p>
+
+<p>
+  <strong>County:</strong>
+  <%= @reconciled_record.county %>
+</p>
+
+<p>
+  <strong>State province:</strong>
+  <%= @reconciled_record.state_province %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @reconciled_record.country %>
+</p>
+
+<p>
+  <strong>Registration number:</strong>
+  <%= @reconciled_record.registration_number %>
+</p>
+
+<p>
+  <strong>Page number:</strong>
+  <%= @reconciled_record.page_number %>
+</p>
+
+<p>
+  <strong>Reconciler name:</strong>
+  <%= @reconciled_record.reconciler_name %>
+</p>
+
+<%= link_to 'Edit', edit_reconciled_record_path(@reconciled_record) %> |
+<%= link_to 'Back', reconciled_records_path %>
